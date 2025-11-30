@@ -1,1 +1,114 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Fishunt</title>
+    <link rel="stylesheet" href="../style.css">
+</head>
+<body>
+    <div class="container">
+        <header>
+
+            <a href="../index.html" class="back-button">返回</a>
+            <h1>Fishunt</h1>
+        </header>
+        <main>
+            <img src="puzzle_pic/post.jpg" alt="FishHunt" style="display: block; margin-left: auto; margin-right: auto;width: 30%;">
+            <p>主创:鱼左</p>
+            <p>公众号:语谜puzzling</p>
+            <p>出题组:鱼左，CALS，‍ClashのRPC，火冬，Tommy，小汤圆，兰穆斯基，Paige</p>
+            <p>时间:2024.3.29-2024.3.21</p>
+            <p>冠军队伍:🫡 </p>
+            <p>完赛总队数:56</p>
+            <ul class="item-list">
+                <li>
+                    <span class="item-title">细密画</span>
+                    <div class="button-group">
+                        <a href="1.html" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="item-title">能指地图</span>
+                    <div class="button-group">
+                        <a href="2.html" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="item-title">连环狂热</span>
+                    <div class="button-group">
+                        <a href="3.html" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+                 <li>
+                    <span class="item-title">比言语更响亮</span>
+                    <div class="button-group">
+                        <a href="4.html" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="item-title">字爱在</span>
+                    <div class="button-group">
+                        <a href="5.html" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="item-title">与波洛克共进一餐</span>
+                    <div class="button-group">
+                        <a href="6.html" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="item-title">解构式解读</span>
+                    <div class="button-group">
+                        <a href="#" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+                <li>
+                    <span class="item-title">艺术创想</span>
+                    <div class="button-group">
+                        <a href="8.html" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+                 <li>
+                    <span class="item-title">拍卖勿白买</span>
+                    <div class="button-group">
+                        <a href="9.html" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+                 <li>
+                    <span class="item-title">挪用艺术</span>
+                    <div class="button-group">
+                        <a href="10.html" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+                 <li>
+                    <span class="item-title">METAMETA-元境</span>
+                    <div class="button-group">
+                        <a href="11.html" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+                 <li>
+                    <span class="item-title">FINALMETA-最佳宣传</span>
+                    <div class="button-group">
+                        <a href="11.html" class="btn-question">原题</a>
+                        <a href="#" class="btn-solution">解析</a>
+                    </div>
+                </li>
+            </ul>
+        </main>
+    </div>
+</body>
+</html>
 
