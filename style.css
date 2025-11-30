@@ -1,0 +1,187 @@
+/* css/style.css */
+
+/* 定义颜色变量，方便统一修改 */
+:root {
+    --bg-color: hsl(213, 18%, 12%);      /* 深蓝色背景 (从 hsl(213, 18%, 2%) 调整为 12% 亮度，避免过黑) */
+    --text-color: #c0c0c0;              /* 银白色字体 */
+    --primary-color: #6c95c2;           /* 标题和重点元素颜色 (一种柔和的蓝色) */
+    --surface-color: hsl(213, 18%, 18%); /* 容器背景色，比主背景稍亮 */
+    --border-color: hsl(213, 15%, 25%);  /* 边框颜色 */
+    --hover-color: hsl(213, 15%, 22%);   /* 悬停时的背景色 */
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+    margin: 0;
+    padding: 20px;
+}
+
+.container {
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: var(--surface-color);
+    padding: 20px 30px;
+    border-radius: 8px;
+    /* 调整阴影以适应深色背景 */
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    border: 1px solid var(--border-color);
+}
+
+header {
+    border-bottom: 2px solid var(--border-color);
+    padding-bottom: 15px;
+    margin-bottom: 20px;
+    position: relative;
+    text-align: center;
+}
+
+h1, h2 {
+    color: var(--primary-color);
+}
+
+h1 {
+    margin: 0;
+}
+
+.back-button {
+    position: absolute;
+    top: 5px;
+    left: 0;
+    text-decoration: none;
+    color: var(--primary-color);
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+.back-button:hover {
+    background-color: var(--hover-color);
+    color: #fff;
+}
+
+.item-list {
+    list-style-type: none;
+    padding: 0;
+}
+
+.item-list li {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s;
+}
+
+.item-list li:hover {
+    background-color: var(--hover-color);
+}
+
+.item-list li:last-child {
+    border-bottom: none;
+}
+
+.item-list .item-title {
+    font-size: 1.2em;
+    font-weight: 500;
+}
+
+/* 针对主页的 Hunt 列表链接样式 */
+.item-list > a {
+    display: block;
+    text-decoration: none;
+    color: var(--text-color); /* 链接文字颜色也设为银白色 */
+    padding: 20px;
+    border-bottom: 1px solid var(--border-color);
+    transition: background-color 0.3s;
+    font-size: 1.2em;
+    font-weight: 500;
+}
+.item-list > a:hover {
+    background-color: var(--hover-color);
+    color: #fff; /* 悬停时文字更亮 */
+}
+.item-list > a:last-child {
+    border-bottom: none;
+}
+
+
+.button-group a {
+    text-decoration: none;
+    padding: 8px 15px;
+    margin-left: 10px;
+    border-radius: 5px;
+    color: #fff; /* 按钮文字用纯白，更醒目 */
+    font-size: 0.8em;
+    transition: background-color 0.3s;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.btn-question {
+    background-color: var(--primary-color); /* 绿色 */
+}
+.btn-question:hover {
+    background-color: var(--primary-color);
+}
+
+.btn-solution {
+    background-color: var(--primary-color); /* 红色 */
+}
+.btn-solution:hover {
+    background-color: var(--primary-color);
+}
+
+/* 题目内容样式 */
+.puzzle-content {
+    background-color: var(--bg-color); /* 内容区域使用更深的背景以突出 */
+    border: 1px solid var(--border-color);
+    padding: 20px;
+    border-radius: 5px;
+}
+.puzzle-content > p{
+    margin-top: 0;
+    margin-bottom: 0;
+}
+.puzzle-content img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 4px;
+}
+
+.puzzle-content h3 {
+    margin-top: 0;
+    color: var(--primary-color);
+}
+
+/* 增强题目内容中 strong 标签的辨识度 */
+.puzzle-content strong {
+    color: #f0a0a0; /* 用一种柔和的红色来高亮答案 */
+}
+/* 针对屏幕宽度小于 600px 的设备（主要是手机） */
+@media (max-width: 600px) {
+    /* 减小整个容器的左右边距 */
+    .container {
+        padding: 15px 15px;
+    }
+
+    /* 减小每一行的内边距 */
+    .item-list li {
+        padding: 12px 5px; /* 上下12px，左右5px */
+    }
+
+    /* 稍微调小标题字号 */
+    .item-list .item-title {
+        font-size: 1rem;
+    }
+
+    /* 关键：大幅减小按钮的内边距和字号 */
+    .button-group a {
+        padding: 5px 8px; /* 原来是 8px 15px，手机上太大了 */
+        margin-left: 5px; /* 减小按钮之间的间距 */
+        font-size: 0.75em; /* 稍微调小按钮文字 */
+    }
+}
