@@ -1,22 +1,28 @@
 /* css/style.css */
+@import url("https://fontsapi.zeoseven.com/292/main/result.css");
 
-/* 定义颜色变量，方便统一修改 */
+
+
+
+/* 定义颜色变量 - 白底黑字配色 */
 :root {
-    --bg-color: hsl(213, 18%, 12%);      /* 深蓝色背景 (从 hsl(213, 18%, 2%) 调整为 12% 亮度，避免过黑) */
-    --text-color: #c0c0c0;              /* 银白色字体 */
-    --primary-color: #6c95c2;           /* 标题和重点元素颜色 (一种柔和的蓝色) */
-    --surface-color: hsl(213, 18%, 18%); /* 容器背景色，比主背景稍亮 */
-    --border-color: hsl(213, 15%, 25%);  /* 边框颜色 */
-    --hover-color: hsl(213, 15%, 22%);   /* 悬停时的背景色 */
+    --bg-color: #ffffff;                /* 纯白色背景 */
+    --text-color: #000000;              /* 深黑色字体 */
+    --primary-color: #000000;           /* 纯黑色 - 标题和重点元素 */
+    --surface-color: #f5f5f5;           /* 容器背景色，比主背景稍暗 */
+    --border-color: #e0e0e0;            /* 浅灰边框 */
+    --hover-color: #f0f0f0;             /* 悬停时的背景色 */
+    --secondary-text: #4a4a4a;          /* 次要文字颜色 */
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, sans-serif;
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
     margin: 0;
     padding: 20px;
+    font-family: "LXGW WenKai";
+    font-weight: normal;
 }
 
 .container {
@@ -25,13 +31,12 @@ body {
     background-color: var(--surface-color);
     padding: 20px 30px;
     border-radius: 8px;
-    /* 调整阴影以适应深色背景 */
-    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.4);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
     border: 1px solid var(--border-color);
 }
 
 header {
-    border-bottom: 2px solid var(--border-color);
+    border-bottom: 2px solid var(--primary-color);
     padding-bottom: 15px;
     margin-bottom: 20px;
     position: relative;
@@ -60,7 +65,7 @@ h1 {
 
 .back-button:hover {
     background-color: var(--hover-color);
-    color: #fff;
+    color: var(--primary-color);
 }
 
 .item-list {
@@ -74,11 +79,12 @@ h1 {
     align-items: center;
     padding: 15px;
     border-bottom: 1px solid var(--border-color);
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s;
 }
 
 .item-list li:hover {
     background-color: var(--hover-color);
+    border-color: #cccccc;
 }
 
 .item-list li:last-child {
@@ -88,56 +94,60 @@ h1 {
 .item-list .item-title {
     font-size: 1.2em;
     font-weight: 500;
+    color: var(--text-color);
 }
 
 /* 针对主页的 Hunt 列表链接样式 */
 .item-list > a {
     display: block;
     text-decoration: none;
-    color: var(--text-color); /* 链接文字颜色也设为银白色 */
+    color: var(--text-color);
     padding: 20px;
     border-bottom: 1px solid var(--border-color);
-    transition: background-color 0.3s;
+    transition: background-color 0.3s, border-color 0.3s;
     font-size: 1.2em;
     font-weight: 500;
 }
 .item-list > a:hover {
     background-color: var(--hover-color);
-    color: #fff; /* 悬停时文字更亮 */
+    color: var(--primary-color);
+    border-color: #cccccc;
 }
 .item-list > a:last-child {
     border-bottom: none;
 }
-
 
 .button-group a {
     text-decoration: none;
     padding: 8px 15px;
     margin-left: 10px;
     border-radius: 5px;
-    color: #fff; /* 按钮文字用纯白，更醒目 */
+    color: #ffffff;
     font-size: 0.8em;
-    transition: background-color 0.3s;
-    border: 1px solid rgba(255, 255, 255, 0.2);
+    font-weight: 600;
+    transition: background-color 0.3s, transform 0.2s;
+    border: 1px solid var(--primary-color);
 }
 
 .btn-question {
-    background-color: var(--primary-color); /* 绿色 */
+    background-color: var(--primary-color);
 }
 .btn-question:hover {
-    background-color: var(--primary-color);
+    background-color: #333333;
+    transform: translateY(-2px);
 }
 
 .btn-solution {
-    background-color: var(--primary-color); /* 红色 */
+    background-color: #4a4a4a;
 }
 .btn-solution:hover {
     background-color: var(--primary-color);
+    transform: translateY(-2px);
 }
 
 /* 题目内容样式 */
 .puzzle-content {
-    background-color: var(--bg-color); /* 内容区域使用更深的背景以突出 */
+    background-color: var(--bg-color);
     border: 1px solid var(--border-color);
     padding: 20px;
     border-radius: 5px;
@@ -145,11 +155,13 @@ h1 {
 .puzzle-content > p{
     margin-top: 0;
     margin-bottom: 0;
+    color: var(--text-color);
 }
 .puzzle-content img {
     max-width: 100%;
     height: auto;
     border-radius: 4px;
+    border: 1px solid var(--border-color);
 }
 
 .puzzle-content h3 {
@@ -159,29 +171,48 @@ h1 {
 
 /* 增强题目内容中 strong 标签的辨识度 */
 .puzzle-content strong {
-    color: #f0a0a0; /* 用一种柔和的红色来高亮答案 */
+    color: var(--primary-color);
+    font-weight: 700;
 }
+
 /* 针对屏幕宽度小于 600px 的设备（主要是手机） */
 @media (max-width: 600px) {
-    /* 减小整个容器的左右边距 */
     .container {
         padding: 15px 15px;
     }
 
-    /* 减小每一行的内边距 */
     .item-list li {
-        padding: 12px 5px; /* 上下12px，左右5px */
+        padding: 12px 5px;
     }
 
-    /* 稍微调小标题字号 */
     .item-list .item-title {
         font-size: 1rem;
     }
 
-    /* 关键：大幅减小按钮的内边距和字号 */
     .button-group a {
-        padding: 5px 8px; /* 原来是 8px 15px，手机上太大了 */
-        margin-left: 5px; /* 减小按钮之间的间距 */
-        font-size: 0.75em; /* 稍微调小按钮文字 */
+        padding: 5px 8px;
+        margin-left: 5px;
+        font-size: 0.75em;
     }
+}
+
+/* 海报图片样式 */
+.poster-img {
+    width: 100%;
+    max-width: 600px;
+    height: auto;
+    display: block;
+    margin: 0 auto 20px;
+    border-radius: 8px;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);
+    border: 2px solid var(--border-color);
+}
+
+/* 名称样式 */
+.poster-name {
+    text-align: center;
+    font-size: 1.2em;
+    color: var(--primary-color);
+    margin-top: 10px;
+    font-weight: bold;
 }
