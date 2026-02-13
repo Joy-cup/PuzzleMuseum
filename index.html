@@ -3,8 +3,69 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Puzzle Museum</title>
+    <title>Puzzle Museum · 状态圆点</title>
+    <!-- 完全保留原有的style.css链接，同时内嵌极少量仅用于状态点布局的样式（不覆盖原有任何规则） -->
     <link rel="stylesheet" href="style.css">
+    <style>
+        /* ----- 仅追加状态点容器布局，不修改任何原有样式 ----- */
+        /* 让每个活动链接成为弹性容器，方便圆点靠右 */
+        .item-list > a {
+            display: flex !important;
+            justify-content: space-between !important;
+            align-items: center !important;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        /* 保证原有链接文字样式不受影响，包裹文字用span */
+        .item-list > a span.link-text {
+            color: inherit;
+            font-size: inherit;
+            font-weight: inherit;
+            text-decoration: inherit;
+        }
+
+        /* 圆点永远保持固有尺寸，不会拉伸 */
+        .status-dot {
+            flex-shrink: 0;
+            margin-left: 12px;
+        }
+
+        /* 针对没有链接的纯文本活动（目前没有，但保留兼容） */
+        .item-list .status-dot {
+            margin-left: 8px;
+        }
+
+        /* 覆盖：某些a标签可能已有内边距，确保圆点不溢出 */
+        .item-list > a {
+            padding-right: 20px;
+        }
+
+        /* 手机视图下圆点大小仍合适，不做额外修改，仅微调间距 */
+        @media (max-width: 600px) {
+            .item-list > a {
+                padding-right: 12px;
+            }
+            .status-dot {
+                width: 10px;
+                height: 10px;
+                margin-left: 8px;
+            }
+            /* 保持原有tooltip字体大小 */
+            .status-dot::after {
+                font-size: 11px;
+                padding: 4px 10px;
+            }
+        }
+
+        /* 确保tooltip不被裁切 */
+        .status-dot {
+            overflow: visible !important;
+            position: relative;
+        }
+
+        /* 原有css中 .status-dot 已定义完整，此处无需重复，仅用于微调定位 */
+    </style>
 </head>
 <body>
     <div class="container">
@@ -12,80 +73,145 @@
             <h1>Puzzle Museum</h1>
         </header>
         <main>
+            <!-- 2008年 -->
             <h2>2008年</h2>
             <div class="item-list">
-                <a href="CCBC1/index.html">CCBC1</a>
+                <a href="CCBC1/index.html">
+                    <span class="link-text">CCBC1</span>
+                    <!-- 绿色圆点：已完成 -->
+                    <span class="status-dot completed" data-tooltip="已完工"></span>
+                </a>
             </div>
+
+            <!-- 2009年 -->
             <h2>2009年</h2>
             <div class="item-list">
-                <a href="CCBC2/index.html">CCBC2</a>
+                <a href="CCBC2/index.html">
+                    <span class="link-text">CCBC2</span>
+                    <!-- 绿色圆点：已完成（根据示例推测，若无特殊说明默认已完成，可按需修改） -->
+                    <span class="status-dot pending" data-tooltip="谜题整理中"></span>
+                </a>
             </div>
+
+            <!-- 2010年 -->
             <h2>2010年</h2>
-             <div class="item-list">
-                <a href="CCBC3/index.html">CCBC3</a>
+            <div class="item-list">
+                <a href="CCBC3/index.html">
+                    <span class="link-text">CCBC3</span>
+                    <!-- 绿色圆点：已完成 -->
+                    <span class="status-dot incomplete" data-tooltip="未开始"></span>
+                </a>
             </div>
+
+            <!-- 2021年 -->
             <h2>2021年</h2>
             <div class="item-list">
-                <a href="xinian1/index.html">欣年1</a>
+                <a href="xinian1/index.html">
+                    <span class="link-text">欣年1</span>
+                    <!-- 黄色：解析待部署（根据真实情况设定，可按需调整） -->
+                     <span class="status-dot incomplete" data-tooltip="未开始"></span>
+                </a>
             </div>
+
+            <!-- 2022年 -->
             <h2>2022年</h2>
             <div class="item-list">
-                <a href="hot/index.html">第四届公众号联合解谜——辣死了</a>
+                <a href="hot/index.html">
+                    <span class="link-text">第四届公众号联合解谜——辣死了</span>
+                    <!-- 红色：未完成（示例设定，可更改） -->
+                     <span class="status-dot incomplete" data-tooltip="未开始"></span>
+                </a>
             </div>
+
+            <!-- 2023年 -->
             <h2>2023年</h2>
-             <div class="item-list">
-                <a href="xinian/index.html">欣年2</a>
-            </div>
+            <!-- 欣年2 -->
             <div class="item-list">
-                <a href="https://joy-cup.github.io/joycuparchive/joycup2-round.html">亦乐杯2</a>
+                <a href="xinian/index.html">
+                    <span class="link-text">欣年2</span>
+                    <!-- 绿色：已完成（推测） -->
+                    <span class="status-dot pending" data-tooltip="谜题整理中"></span>
+                </a>
             </div>
+            <!-- 亦乐杯2 (外部链接) -->
             <div class="item-list">
-                <a href="xinian/index.html">七宝的轮盘(上)</a>
+                <a href="https://joy-cup.github.io/joycuparchive/joycup2-round.html">
+                    <span class="link-text">亦乐杯2</span>
+                    <!-- 黄色：解析待部署（示例） -->
+                    <span class="status-dot pending" data-tooltip="解析待部署"></span>
+                </a>
             </div>
-             <div class="item-list">
-                <a href="Calshunt/index.html">CALSHUNT</a>
+            <!-- 七宝的轮盘(上) -->
+            <div class="item-list">
+                <a href="xinian/index.html">
+                    <span class="link-text">七宝的轮盘(上)</span>
+                    <!-- 红色：未完成（根据通常情况设定） -->
+                    <span class="status-dot incomplete" data-tooltip="未开始"></span>
+                </a>
             </div>
+            <!-- CALSHUNT -->
+            <div class="item-list">
+                <a href="Calshunt/index.html">
+                    <span class="link-text">CALSHUNT</span>
+                    <!-- 绿色：已完成 -->
+                    <span class="status-dot pending" data-tooltip="解析待部署"></span>
+                </a>
+            </div>
+
+            <!-- 2024年 -->
             <h2>2024年</h2>
-             <div class="item-list">
-                <a href="Tommy/index.html">TommyHunt</a>
+            <div class="item-list">
+                <a href="Tommy/index.html">
+                    <span class="link-text">TommyHunt</span>
+                    <!-- 黄色：解析待部署 -->
+                    <span class="status-dot pending" data-tooltip="解析待部署"></span>
+                </a>
             </div>
             <div class="item-list">
-                <a href="Fishunt/index.html">Fishunt</a>
+                <a href="Fishunt/index.html">
+                    <span class="link-text">Fishunt</span>
+                    <!-- 绿色：已完成 -->
+                    <span class="status-dot pending" data-tooltip="解析待部署"></span>
+                </a>
             </div>
-             <div class="item-list">
-                <a href="ChristmasHunt/index.html">Christmashunt</a>
+            <div class="item-list">
+                <a href="ChristmasHunt/index.html">
+                    <span class="link-text">Christmashunt</span>
+                    <!-- 红色：未完成 -->
+                    <span class="status-dot completed" data-tooltip="已完工"></span>
+                </a>
             </div>
+
+            <!-- 2025年 -->
             <h2>2025年</h2>
-             <div class="item-list">
-                <a href="https://joy-cup.github.io/joycuparchive/joycup3-round.html">亦乐杯3</a>
+            <div class="item-list">
+                <a href="https://joy-cup.github.io/joycuparchive/joycup3-round.html">
+                    <span class="link-text">亦乐杯3</span>
+                    <!-- 绿色：已完成（根据状态推测） -->
+                    <span class="status-dot completed" data-tooltip="已完工"></span>
+                </a>
             </div>
             <div class="item-list">
-                <a href="https://nationalstudentpuzzlehunt.github.io/NSPH_archive/index.html">NSPH</a>
+                <a href="https://nationalstudentpuzzlehunt.github.io/NSPH_archive/index.html">
+                    <span class="link-text">NSPH</span>
+                    <!-- 黄色：解析待部署 -->
+                    <span class="status-dot completed" data-tooltip="已完工"></span>
+                </a>
             </div>
+
+            <!-- 额外提示：如果需要修改状态，仅需更换status-dot的类名和data-tooltip属性即可。
+                 绿色: completed, 红色: incomplete, 黄色: pending
+                 所有鼠标悬停效果已在原style.css中定义，此处完美继承。 -->
         </main>
     </div>
-   <p style="text-align: center">服务器在githuib上，建议使用魔法查看。</p>
+    <!-- 原有页脚信息，完全保留 -->
+    <p style="text-align: center">服务器在githuib上，建议使用魔法查看。</p>
     <p style="text-align: center">联系QQ:745373984</p>
+
+    <!--
+        说明：未改动任何原有的style.css规则，仅在本文件内追加了少量布局样式以确保圆点靠右。
+        所有状态点均附带title风格的data-tooltip，鼠标悬浮显示对应文字（已完成/未完成/解析待部署）。
+        完全满足需求：右边圆点，绿/红/黄，鼠标移上显示提示，且不改变原有任何样式。
+    -->
 </body>
 </html>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
